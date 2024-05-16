@@ -37,7 +37,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_BASE_URL: ${{ secrets.VITE_API_URL }}
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
           VITE_USER_ID: ${{ secrets.VITE_USER_ID }}
           VITE_PASSWORD: ${{ secrets.VITE_PASSWORD }}
 
