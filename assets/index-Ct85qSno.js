@@ -187,11 +187,11 @@ Error generating stack: `+i.message+`
 `,Ok=ve.p`
   font-size: ${({theme:e})=>e.fontSize.lg};
   font-weight: 700;
-`;function bk({item:e,onRemoveItem:t,onUpdateQuantity:n}){const{id:r,quantity:o,product:i}=e,[l,a]=td(Tk(e)),s=()=>a(l);return b.jsxs(Lk,{children:[b.jsxs(Nk,{children:[b.jsx(Zg,{isChecked:l,onClick:s}),b.jsx(Ak,{className:"DeleteButton",onClick:()=>t(r),children:"삭제"})]}),b.jsxs(Pk,{children:[b.jsx($k,{src:i.imageUrl}),b.jsxs(Mk,{children:[b.jsxs(Ik,{children:[b.jsx(Dk,{children:i.name}),b.jsxs(Ok,{children:[i.price.toLocaleString(),"원"]})]}),b.jsx(Ck,{quantity:o,onMinusButtonClick:()=>n(r,o-1),onPlusButtonClick:()=>n(r,o+1)})]})]})]})}function ud(e,t){return`Basic ${btoa(`${e}:${t}`)}`}const cd={FETCH:"장바구니 상품을 불러오는 중 문제가 발생했습니다.",ADD:"상품을 장바구니에 추가하는 중 문제가 발생했습니다.",REMOVE:"상품을 장바구니에서 제거하는 중 문제가 발생했습니다.",UPDATE:"상품 개수를 업데이트하는 중 문제가 발생했습니다."};var zk={VITE_PASSWORD:"",VITE_USER_ID:"anttiey",VITE_API_URL:"http://54.180.95.212:8080",BASE_URL:"/react-shopping-cart/",MODE:"production",DEV:!1,PROD:!0,SSR:!1};const fd="http://54.180.95.212:8080",dd=zk.VITE_USER_PASSWORD,hd="anttiey",Jg=async()=>{const e=ud(hd,dd),t=await fetch(`${fd}/cart-items`,{method:"GET",headers:{Authorization:e}});if(!t.ok)throw new Error(cd.FETCH);return(await t.json()).content},Uk=async e=>{const t=ud(hd,dd);if(!(await fetch(`${fd}/cart-items/${e}`,{method:"DELETE",headers:{Authorization:t}})).ok)throw new Error(cd.REMOVE)},Vk=async(e,t)=>{const n=ud(hd,dd);if(!(await fetch(`${fd}/cart-items/${e}`,{method:"PATCH",headers:{"Content-Type":"application/json",Authorization:n},body:JSON.stringify({quantity:t})})).ok)throw new Error(cd.UPDATE)},Fk=ve.div`
+`;function bk({item:e,onRemoveItem:t,onUpdateQuantity:n}){const{id:r,quantity:o,product:i}=e,[l,a]=td(Tk(e)),s=()=>a(l);return b.jsxs(Lk,{children:[b.jsxs(Nk,{children:[b.jsx(Zg,{isChecked:l,onClick:s}),b.jsx(Ak,{className:"DeleteButton",onClick:()=>t(r),children:"삭제"})]}),b.jsxs(Pk,{children:[b.jsx($k,{src:i.imageUrl}),b.jsxs(Mk,{children:[b.jsxs(Ik,{children:[b.jsx(Dk,{children:i.name}),b.jsxs(Ok,{children:[i.price.toLocaleString(),"원"]})]}),b.jsx(Ck,{quantity:o,onMinusButtonClick:()=>n(r,o-1),onPlusButtonClick:()=>n(r,o+1)})]})]})]})}function ud(e,t){return`Basic ${btoa(`${e}:${t}`)}`}const cd={FETCH:"장바구니 상품을 불러오는 중 문제가 발생했습니다.",ADD:"상품을 장바구니에 추가하는 중 문제가 발생했습니다.",REMOVE:"상품을 장바구니에서 제거하는 중 문제가 발생했습니다.",UPDATE:"상품 개수를 업데이트하는 중 문제가 발생했습니다."},fd="http://54.180.95.212:8080",dd="password",hd="anttiey",Jg=async()=>{const e=ud(hd,dd),t=await fetch(`${fd}/cart-items`,{method:"GET",headers:{Authorization:e}});if(!t.ok)throw new Error(cd.FETCH);return(await t.json()).content},zk=async e=>{const t=ud(hd,dd);if(!(await fetch(`${fd}/cart-items/${e}`,{method:"DELETE",headers:{Authorization:t}})).ok)throw new Error(cd.REMOVE)},Uk=async(e,t)=>{const n=ud(hd,dd);if(!(await fetch(`${fd}/cart-items/${e}`,{method:"PATCH",headers:{"Content-Type":"application/json",Authorization:n},body:JSON.stringify({quantity:t})})).ok)throw new Error(cd.UPDATE)},Vk=ve.div`
   display: flex;
   flex-direction: column;
   row-gap: 20px;
-`,jk=ve.div`
+`,Fk=ve.div`
   display: flex;
   flex-direction: row;
   column-gap: 8px;
@@ -200,27 +200,27 @@ Error generating stack: `+i.message+`
   p {
     font-size: 12px;
   }
-`;function Bk({cartItemList:e,updateCartItemList:t}){const n=ns(),[r,o]=td(Rn),i=r.length===e.length,l=()=>{o(i?[]:e)},a=async(u,c)=>{try{await Vk(u,c),t()}catch{n("/error")}},s=async u=>{try{await Uk(u),t()}catch{n("/error")}};return b.jsxs(Fk,{children:[b.jsxs(jk,{children:[b.jsx(Zg,{isChecked:i,onClick:l}),b.jsx("p",{children:"전체 선택"})]}),e.map(u=>b.jsx(bk,{item:u,onRemoveItem:s,onUpdateQuantity:a},u.id))]})}const Hk=ve.div`
+`;function jk({cartItemList:e,updateCartItemList:t}){const n=ns(),[r,o]=td(Rn),i=r.length===e.length,l=()=>{o(i?[]:e)},a=async(u,c)=>{try{await Uk(u,c),t()}catch{n("/error")}},s=async u=>{try{await zk(u),t()}catch{n("/error")}};return b.jsxs(Vk,{children:[b.jsxs(Fk,{children:[b.jsx(Zg,{isChecked:i,onClick:l}),b.jsx("p",{children:"전체 선택"})]}),e.map(u=>b.jsx(bk,{item:u,onRemoveItem:s,onUpdateQuantity:a},u.id))]})}const Bk=ve.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding: 5px 0;
-`,Wk=ve.p`
+`,Hk=ve.p`
   font-size: ${({theme:e})=>e.fontSize.md};
   font-weight: ${({theme:e})=>e.fontWeight.bold};
-`,Kk=ve.p`
+`,Wk=ve.p`
   font-size: ${({theme:e})=>e.fontSize.lg};
   font-weight: ${({theme:e})=>e.fontWeight.bold};
-`;function yu({title:e,value:t}){return b.jsxs(Hk,{children:[b.jsx(Wk,{children:e}),b.jsxs(Kk,{children:[t.toLocaleString(),"원"]})]})}const Gk=3e3,qg=1e5,ey=e=>e===0||e>=qg?0:Gk,Qk=ve.div`
+`;function yu({title:e,value:t}){return b.jsxs(Bk,{children:[b.jsx(Hk,{children:e}),b.jsxs(Wk,{children:[t.toLocaleString(),"원"]})]})}const Kk=3e3,qg=1e5,ey=e=>e===0||e>=qg?0:Kk,Gk=ve.div`
   display: flex;
   flex-direction: column;
   row-gap: 15px;
   margin-top: 15px;
-`,Yk=ve.img`
+`,Qk=ve.img`
   width: 16px;
   height: 16px;
-`,Zk=ve.div`
+`,Yk=ve.div`
   display: flex;
   align-items: center;
   column-gap: 3px;
@@ -229,21 +229,21 @@ Error generating stack: `+i.message+`
   p {
     padding-top: 2px;
   }
-`,Xk=ve.div`
+`,Zk=ve.div`
   display: flex;
   flex-direction: column;
   row-gap: 15px;
   padding: 15px 0px;
   border-top: 1px solid ${({theme:e})=>e.color.primary.light};
   border-bottom: 1px solid ${({theme:e})=>e.color.primary.light};
-`;function Jk(){const e=ql(Xg),t=ey(e),n=e+t;return b.jsxs(Qk,{children:[b.jsxs(Zk,{children:[b.jsx(Yk,{src:iT}),b.jsxs("p",{children:["총 주문 금액이 ",qg.toLocaleString(),"원 이상일 경우 무료 배송됩니다."]})]}),b.jsxs(Xk,{children:[b.jsx(yu,{title:"주문 금액",value:e}),b.jsx(yu,{title:"배송비",value:t})]}),b.jsx(yu,{title:"총 결제 금액",value:n})]})}const qk=ve.div`
+`;function Xk(){const e=ql(Xg),t=ey(e),n=e+t;return b.jsxs(Gk,{children:[b.jsxs(Yk,{children:[b.jsx(Qk,{src:iT}),b.jsxs("p",{children:["총 주문 금액이 ",qg.toLocaleString(),"원 이상일 경우 무료 배송됩니다."]})]}),b.jsxs(Zk,{children:[b.jsx(yu,{title:"주문 금액",value:e}),b.jsx(yu,{title:"배송비",value:t})]}),b.jsx(yu,{title:"총 결제 금액",value:n})]})}const Jk=ve.div`
   display: flex;
   flex-direction: column;
   row-gap: 36px;
   min-height: calc(100vh - ${({theme:e})=>e.boxHeight} * 3);
   margin-bottom: ${({theme:e})=>e.boxHeight};
   padding: 36px 24px;
-`,eL=ve.div`
+`,qk=ve.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -256,7 +256,7 @@ Error generating stack: `+i.message+`
   img {
     width: 150px;
   }
-`;function tL(){const e=Dw(),[t,n]=P.useState(e),[r,o]=td(Rn),i=async()=>{const c=await Jg();n(c);const f=c.filter(h=>r.some(S=>h.id===S.id));o(f)},l=t.length!==0,a=r.length!==0,s=()=>b.jsxs(b.Fragment,{children:[b.jsx(Bk,{cartItemList:t,updateCartItemList:i}),b.jsx(Jk,{})]}),u=()=>b.jsxs(eL,{children:[b.jsx("img",{src:dT}),b.jsx("p",{children:"장바구니에 담은 상품이 없습니다."})]});return b.jsxs("div",{children:[b.jsx(sd,{}),b.jsx(jw,{resolve:t,children:b.jsxs(qk,{children:[b.jsx(Yg,{title:"장바구니",subTitle:t.length!==0?`현재 ${t.length}종류의 상품이 담겨있습니다.`:""}),l?s():u()]})}),a?b.jsx(zf,{to:fn.CONFIRM,children:b.jsx(Dc,{isActive:!0,content:"주문 확인"})}):b.jsx(Dc,{isActive:!1,content:"주문 확인"})]})}const nL=ve.div`
+`;function eL(){const e=Dw(),[t,n]=P.useState(e),[r,o]=td(Rn),i=async()=>{const c=await Jg();n(c);const f=c.filter(h=>r.some(S=>h.id===S.id));o(f)},l=t.length!==0,a=r.length!==0,s=()=>b.jsxs(b.Fragment,{children:[b.jsx(jk,{cartItemList:t,updateCartItemList:i}),b.jsx(Xk,{})]}),u=()=>b.jsxs(qk,{children:[b.jsx("img",{src:dT}),b.jsx("p",{children:"장바구니에 담은 상품이 없습니다."})]});return b.jsxs("div",{children:[b.jsx(sd,{}),b.jsx(jw,{resolve:t,children:b.jsxs(Jk,{children:[b.jsx(Yg,{title:"장바구니",subTitle:t.length!==0?`현재 ${t.length}종류의 상품이 담겨있습니다.`:""}),l?s():u()]})}),a?b.jsx(zf,{to:fn.CONFIRM,children:b.jsx(Dc,{isActive:!0,content:"주문 확인"})}):b.jsx(Dc,{isActive:!1,content:"주문 확인"})]})}const tL=ve.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -265,27 +265,27 @@ Error generating stack: `+i.message+`
   width: 100%;
   height: calc(100vh - ${({theme:e})=>e.boxHeight} * 2);
   text-align: center;
-`,rL=ve.p`
+`,nL=ve.p`
   font-size: ${({theme:e})=>e.fontSize.sm};
   line-height: 1.5;
-`,oL=ve.div`
+`,rL=ve.div`
   display: flex;
   flex-direction: column;
   row-gap: 12px;
-`,iL=ve.p`
+`,oL=ve.p`
   font-size: ${({theme:e})=>e.fontSize.md};
   font-weight: 700;
-`,lL=ve.p`
+`,iL=ve.p`
   font-size: ${({theme:e})=>e.fontSize.lg};
   font-weight: 700;
-`;function aL(){const e=ql(Rn),t=ql(Xg),n=ql(kk);if(e.length===0)return b.jsx(Vw,{to:fn.ERROR});const r=t+ey(t);return b.jsxs("div",{children:[b.jsx(sd,{}),b.jsxs(nL,{children:[b.jsx(Yg,{title:"주문 확인"}),b.jsxs(rL,{children:["총 ",e.length,"종류의 상품 ",n,"개를 주문합니다.",b.jsx("br",{}),"최종 결제 금액을 확인해주세요."]}),b.jsxs(oL,{children:[b.jsx(iL,{children:"총 결제 금액"}),b.jsxs(lL,{children:[r.toLocaleString(),"원"]})]})]}),b.jsx(Dc,{isActive:!1,content:"결제하기"})]})}const sL=ve.div`
+`;function lL(){const e=ql(Rn),t=ql(Xg),n=ql(kk);if(e.length===0)return b.jsx(Vw,{to:fn.ERROR});const r=t+ey(t);return b.jsxs("div",{children:[b.jsx(sd,{}),b.jsxs(tL,{children:[b.jsx(Yg,{title:"주문 확인"}),b.jsxs(nL,{children:["총 ",e.length,"종류의 상품 ",n,"개를 주문합니다.",b.jsx("br",{}),"최종 결제 금액을 확인해주세요."]}),b.jsxs(rL,{children:[b.jsx(oL,{children:"총 결제 금액"}),b.jsxs(iL,{children:[r.toLocaleString(),"원"]})]})]}),b.jsx(Dc,{isActive:!1,content:"결제하기"})]})}const aL=ve.div`
   height: calc(100vh - ${({theme:e})=>e.boxHeight});
   display: flex;
   flex-direction: column;
   row-gap: 50px;
   justify-content: center;
   align-items: center;
-`,uL=ve.div`
+`,sL=ve.div`
   display: flex;
   flex-direction: column;
   row-gap: 20px;
@@ -309,7 +309,7 @@ Error generating stack: `+i.message+`
     line-height: 1.7;
     color: darkgray;
   }
-`,cL=ve.button`
+`,uL=ve.button`
   width: 320px;
   height: 44px;
   border-radius: 5px;
@@ -318,7 +318,7 @@ Error generating stack: `+i.message+`
   font-size: 14px;
   text-align: center;
   cursor: pointer;
-`,Tp=()=>b.jsxs(b.Fragment,{children:[b.jsx(sd,{}),b.jsxs(sL,{children:[b.jsxs(uL,{children:[b.jsx("h1",{children:"404"}),b.jsx("h2",{children:"죄송합니다. 현재 찾을 수 없는 페이지를 요청하셨습니다."}),b.jsxs("p",{children:["페이지의 주소가 잘못 입력되었거나,",b.jsx("br",{}),"주소가 변경 혹은 삭제되어 요청하신 페이지를 찾을 수 없습니다."]})]}),b.jsx(zf,{to:fn.ROOT,children:b.jsx(cL,{children:"메인으로"})})]})]}),fL=pk`
+`,Tp=()=>b.jsxs(b.Fragment,{children:[b.jsx(sd,{}),b.jsxs(aL,{children:[b.jsxs(sL,{children:[b.jsx("h1",{children:"404"}),b.jsx("h2",{children:"죄송합니다. 현재 찾을 수 없는 페이지를 요청하셨습니다."}),b.jsxs("p",{children:["페이지의 주소가 잘못 입력되었거나,",b.jsx("br",{}),"주소가 변경 혹은 삭제되어 요청하신 페이지를 찾을 수 없습니다."]})]}),b.jsx(zf,{to:fn.ROOT,children:b.jsx(uL,{children:"메인으로"})})]})]}),cL=pk`
     /*
     Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
     - The "symbol *" part is to solve Firefox SVG sprite bug
@@ -435,4 +435,4 @@ Error generating stack: `+i.message+`
     input[type='number'] {
     -moz-appearance: textfield;
     }
-`,dL={primary:{light:"lightgrey",main:"black"},error:"#FF3D3D"},hL={sm:"12px",md:"16px",lg:"24px"},pL={light:"400",medium:"500",bold:"700"},mL="64px",vL={color:dL,fontSize:hL,fontWeight:pL,boxHeight:mL};function gL(){const e=Jw([{path:fn.ROOT,element:b.jsx(tL,{}),loader:()=>Jg(),errorElement:b.jsx(Tp,{})},{path:fn.CONFIRM,element:b.jsx(aL,{})},{path:fn.ERROR,element:b.jsx(Tp,{})}],{basename:fn.BASE});return b.jsxs(fk,{theme:vL,children:[b.jsx(fL,{}),b.jsx(a_,{router:e})]})}Su.createRoot(document.getElementById("root")).render(b.jsx(ye.StrictMode,{children:b.jsx(nT,{children:b.jsx(gL,{})})}));
+`,fL={primary:{light:"lightgrey",main:"black"},error:"#FF3D3D"},dL={sm:"12px",md:"16px",lg:"24px"},hL={light:"400",medium:"500",bold:"700"},pL="64px",mL={color:fL,fontSize:dL,fontWeight:hL,boxHeight:pL};function vL(){const e=Jw([{path:fn.ROOT,element:b.jsx(eL,{}),loader:()=>Jg(),errorElement:b.jsx(Tp,{})},{path:fn.CONFIRM,element:b.jsx(lL,{})},{path:fn.ERROR,element:b.jsx(Tp,{})}],{basename:fn.BASE});return b.jsxs(fk,{theme:mL,children:[b.jsx(cL,{}),b.jsx(a_,{router:e})]})}Su.createRoot(document.getElementById("root")).render(b.jsx(ye.StrictMode,{children:b.jsx(nT,{children:b.jsx(vL,{})})}));
