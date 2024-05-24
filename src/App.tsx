@@ -1,8 +1,9 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ShoppingCartPage from './pages/ShoppingCartPage/ShoppingCartPage';
 import OrderConfirmPage from './pages/OrderConfirmPage/OrderConfirmPage';
+import PaymentConfirmPage from './pages/PaymentConfirmPage/PaymentConfirmPage';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
-import { fetchCartItemList } from './apis';
+import { fetchCartItemList, fetchCoupons } from './apis';
 import { PATHS } from './constants/PATHS';
 
 import { ThemeProvider } from 'styled-components';
@@ -19,8 +20,13 @@ function App() {
         errorElement: <ErrorPage />,
       },
       {
-        path: PATHS.CONFIRM,
+        path: PATHS.ORDER_CONFIRM,
+        loader: () => fetchCoupons(),
         element: <OrderConfirmPage />,
+      },
+      {
+        path: PATHS.PAYMENT_CONFIRM,
+        element: <PaymentConfirmPage />,
       },
       {
         path: PATHS.ERROR,
